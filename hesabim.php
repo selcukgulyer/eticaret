@@ -12,11 +12,12 @@ session_start();
     (
       'mail' => $_SESSION['userkullanici_mail']
     ));
+}
       $say=$kullanicisor->rowCount();
-  $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC
-  }
+  $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
+  
 
-);
+
 
  ?>
 
@@ -118,14 +119,6 @@ session_start();
 
 
 				<button type="submit" name="kullaniciguncelle" class="btn btn-default btn-red">Bilgilerimi Güncelle</button>
-			</div>
-			<div class="col-md-6">
-				<div class="title-bg">
-					<div class="title">Şifrenizi mi Unuttunuz?</div>
-				</div>
-
-
-				<center><img width="400" src="http://www.emrahyuksel.com.tr/dimg/sifremi-unuttum.jpg"></center>
 			</div>
 		</div>
 		</form>

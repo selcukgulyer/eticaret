@@ -55,11 +55,7 @@
 
 				}
 				 }
-				 ?>
-
-
-				
-
+				 ?>			
 
 				<div class="form-group dob">
 					<div class="col-sm-12">
@@ -86,14 +82,7 @@
 
 				<button type="submit" name="kullanicikaydet" class="btn btn-default btn-red">Kayıt İşlemini Yap</button>
 			</div>
-			<div class="col-md-6">
-				<div class="title-bg">
-					<div class="title">Şifrenizi mi Unuttunuz?</div>
-				</div>
-
-
-				<center><img width="400" src="http://www.emrahyuksel.com.tr/dimg/sifremi-unuttum.jpg"></center>
-			</div>
+		
 		</div>
 		</form>
 	</div>

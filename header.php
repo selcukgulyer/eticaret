@@ -15,10 +15,15 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
   $kullanicisor=$db->prepare("SELECT * from kullanici where kullanici_mail=:mail" );
-  $kullanicisor->execute(array
+if (isset($_SESSION['userkullanici_mail'])) {
+	 $kullanicisor->execute(array
     (
       'mail' => $_SESSION['userkullanici_mail']
     ));
+}
+  	
+  
+ 
   $say=$kullanicisor->rowCount();
   $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
 
@@ -29,10 +34,13 @@ error_reporting(E_ALL & ~E_NOTICE);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php 
+    if (isset($ayarcek['ayar_description'],$ayarcek['ayar_keywords'],$ayarcek['author'])) {
+    	echo "<meta name=\"description\" content=\"".$ayarcek['ayar_description'] ."\">
+ 			 <meta name=\"keywords\" content=\"" .$ayarcek['ayar_keywords']."\">
+  		     <meta name=\"author\" content=\"" .$ayarcek['author']."\">";
+    } ?>
     
-    <meta name="description" content="<?php echo $ayarcek['ayar_description'] ?>">
- 	<meta name="keywords" content="<?php echo $ayarcek['ayar_keywords'] ?>">
-  	<meta name="author" content="<?php echo $ayarcek['author'] ?>">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fonts -->
@@ -225,7 +233,13 @@ error_reporting(E_ALL & ~E_NOTICE);
 							<div class="popcart-tot">
 								<p>
 									Toplam Tutar :<br>
+									<?php 
+								if (isset($_SESSION['userkullanici_mail'])) {?>
 									<span><?php echo $toplam_fiyat ?></span>
+								<?php }
+								 ?>
+									
+									
 								</p>
 							</div>
 							<div class="clearfix"></div>

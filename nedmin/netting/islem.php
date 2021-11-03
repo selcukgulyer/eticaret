@@ -136,7 +136,7 @@ if (isset($_POST['logoduzenle'])) {
 		Header("Location:../production/genel-ayar.php?durum=dosyabuyuk");
 	}
 
-	$izinliuzantılar=array('jpg','gif');
+	$izinliuzantılar=array('jpg','gif','png');
 
 	//echo $_FILES['ayar_logo']["name"];
 

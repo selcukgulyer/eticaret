@@ -19,13 +19,16 @@
  </head>
 
  <?php 
-
- if ($_GET['durum']=="ok") { ?>
+if (isset($_GET['durum'])) {
+	 if ($_GET['durum']=="ok") { ?>
  	<script type="text/javascript">
  		alert("Yorum Başarıyla Eklendi")
  	</script>
  <?php }
+ 	}
   ?>
+
+
 
 	<div class="container">
 		
@@ -138,16 +141,23 @@
 					<ul id="myTab" class="nav nav-tabs shop-tab">
 						<li 
 							<?php 
+							if (isset($_GET['durum'])) {
 								if ($_GET['durum']!="ok") { ?>
 								class="active"	
 							<?php }
+							}
 							 ?>
+							
+								
 						><a href="#desc" data-toggle="tab">Açıklama</a></li>
 						<li 
-							<?php if ($_GET['durum']=="ok") { ?>
-								class="active"
-							<?php  } ?>
-
+						<?php 
+							if (isset($_GET['durum'])) {
+								if ($_GET['durum']=="ok") { ?>
+								class="active"	
+							<?php }
+							}
+							 ?>
 
 							<?php  
 							$kullanici_id=$kullanicicek['kullanici_id'];

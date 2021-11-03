@@ -19,8 +19,6 @@
                        <b style="color:red;">İşlem Başarısız...</b> 
                      
                     <?php }
-
-     
                      
                     }
                     ?>
