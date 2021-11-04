@@ -35,7 +35,7 @@
 						$sepetsor->execute(array(
 							'id' => $kullanici_id
 						));
-
+						$toplam_fiyat=0;
 						while($sepetcek=$sepetsor->fetch(PDO::FETCH_ASSOC)){
 							$urun_id=$sepetcek['urun_id'];
 							$urunsor=$db->prepare("SELECT * from urun where urun_id=:urun_id");
@@ -43,9 +43,8 @@
 								'urun_id' => $urun_id
 							));
 							$uruncek=$urunsor->fetch(PDO::FETCH_ASSOC);
-							//$toplamfiyat+=$uruncek['urun_fiyat']*$sepetcek['urun_adet'];
+							$toplam_fiyat+=$uruncek['urun_fiyat']*$sepetcek['urun_adet'];
 						
-
 					 ?>
 					
 					
@@ -76,7 +75,8 @@
 					<p>Vat 17% : $54.00</p>
 				</div>
 			-->
-				<div class="total">Toplam Tutar: <span class="bigprice"><?php echo $toplam_fiyat ?></span></div>
+				<div class="total">Toplam Tutar: <span class="bigprice"><?php 
+				echo "$toplam_fiyat" ?></span></div>
 				
 				<div class="clearfix"></div>
 				<a href="" class="btn btn-default btn-yellow">Ödeme Sayfası</a>

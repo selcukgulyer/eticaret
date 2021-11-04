@@ -66,7 +66,7 @@ $slidersor->execute();
                           <td width="20"> <?php echo $say  ?></td>
                           <td><img width="200" src="../../<?php echo $slidercek['slider_resimyol'] ?>"></td>
                           <td><?php echo $slidercek['slider_ad'] ?></td>
-                          <td><?php echo $slidercek['slider_url'] ?></td>
+                          <td><?php echo $slidercek['slider_link'] ?></td>
                            <td><?php echo $slidercek['slider_sira'] ?></td>
                           <td><center>
                             <?php 
