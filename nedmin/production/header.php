@@ -13,10 +13,13 @@ error_reporting(E_ALL & ~E_NOTICE);
   $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
 
   $kullanicisor=$db->prepare("SELECT * from kullanici where kullanici_mail=:mail" );
-  $kullanicisor->execute(array
+ 
+    $kullanicisor->execute(array
     (
       'mail' => $_SESSION['kullanici_mail']
     ));
+  
+ 
   $say=$kullanicisor->rowCount();
   $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
 

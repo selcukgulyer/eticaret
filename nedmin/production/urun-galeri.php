@@ -104,7 +104,7 @@ include 'header.php';
                     <div class="image view view-first">
                       <img style="width: 250px; height: 100px; display: block;" src="../../<?php echo $urunfotocek['urunfoto_resimyol']; ?>" alt="image" />
                       <div class="mask">
-                        <p><?php echo $urunfotocek['urunfoto_ad']; ?> <?php echo $urunfotocek['urunfoto_id']; ?></p>
+                        <p> <?php echo $urunfotocek['urunfoto_id']; ?></p>
                         <div class="tools tools-bottom">
 
                           <!--<a href="#"><i class="fa fa-times"></i></a>-->
@@ -115,7 +115,8 @@ include 'header.php';
 
                     </div>
 
-                    <?php  array("$urunfotosec"); ?>
+                    <?php  if(isset($urunfotosec)){
+                      array("$urunfotosec");} ?>
 
 
                     <input type="checkbox" name="urunfotosec[]"  value="<?php echo $urunfotocek['urunfoto_id']; ?>" > Seç

@@ -32,7 +32,7 @@
 						$sepetsor->execute(array(
 							'kullanici_id' => $kullanici_id
 						));
-
+						$toplamfiyat=0;
 						while($sepetcek=$sepetsor->fetch(PDO::FETCH_ASSOC)){
 							$urun_id=$sepetcek['urun_id'];
 							$urunsor=$db->prepare("SELECT * from urun where urun_id=:urun_id");

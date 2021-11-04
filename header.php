@@ -194,21 +194,24 @@ if (isset($_SESSION['userkullanici_mail'])) {
 								<tbody>
 
 									<?php 
-									$kullanici_id=$kullanicicek['kullanici_id'];
-									$sepetsor=$db->prepare("SELECT * from sepet where kullanici_id=:kullanici_id");
-									$sepetsor->execute(array(
-									'kullanici_id' => $kullanici_id
-									));
+									if(isset($kullanicicek['kullanici_id'],$uruncek['urun_fiyat'])){
+										$kullanici_id=$kullanicicek['kullanici_id'];
+										$sepetsor=$db->prepare("SELECT * from sepet where kullanici_id=:kullanici_id");
+										$sepetsor->execute(array(
+										'kullanici_id' => $kullanici_id
+										));
+	
+										while($sepetcek=$sepetsor->fetch(PDO::FETCH_ASSOC)){
+										$urun_id=$sepetcek['urun_id'];
+										$urunsor=$db->prepare("SELECT * from urun where urun_id=:urun_id");
+										$urunsor->execute(array(
+										'urun_id' => $urun_id
+										));
+										$uruncek=$urunsor->fetch(PDO::FETCH_ASSOC);
+										$toplam_fiyat+=$uruncek['urun_fiyat']*$sepetcek['urun_adet'];
+																	
+									}
 
-									while($sepetcek=$sepetsor->fetch(PDO::FETCH_ASSOC)){
-									$urun_id=$sepetcek['urun_id'];
-									$urunsor=$db->prepare("SELECT * from urun where urun_id=:urun_id");
-									$urunsor->execute(array(
-									'urun_id' => $urun_id
-									));
-									$uruncek=$urunsor->fetch(PDO::FETCH_ASSOC);
-									$toplam_fiyat+=$uruncek['urun_fiyat']*$sepetcek['urun_adet'];
-						
 
 									 ?>
 									<tr>
@@ -234,9 +237,9 @@ if (isset($_SESSION['userkullanici_mail'])) {
 								<p>
 									Toplam Tutar :<br>
 									<?php 
-								if (isset($_SESSION['userkullanici_mail'])) {?>
-									<span><?php echo $toplam_fiyat ?></span>
-								<?php }
+								if (isset($toplam_fiyat)) {
+									echo "<span>".$toplam_fiyat."</span>";
+								 }
 								 ?>
 									
 									
